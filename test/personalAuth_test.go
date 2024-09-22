@@ -2,8 +2,8 @@ package test
 
 import (
 	"fmt"
-	"qiyuesuo/sdk/model"
-	"qiyuesuo/sdk/request"
+	"github.com/bugKai001/qiyuesuo/model"
+	"github.com/bugKai001/qiyuesuo/request"
 	"testing"
 )
 

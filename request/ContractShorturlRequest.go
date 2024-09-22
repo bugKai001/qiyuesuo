@@ -1,7 +1,7 @@
 package request
 
 import (
-	"qiyuesuo/sdk/http"
+	"github.com/bugKai001/qiyuesuo/http"
 )
 
 type ContractShorturlRequest struct {

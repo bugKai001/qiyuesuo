@@ -1,8 +1,8 @@
 package request
 
 import (
-	"qiyuesuo/sdk/http"
-	"qiyuesuo/sdk/model"
+	"github.com/bugKai001/qiyuesuo/http"
+	"github.com/bugKai001/qiyuesuo/model"
 )
 
 type UserAuthResultRequest struct {

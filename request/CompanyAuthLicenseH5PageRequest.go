@@ -1,7 +1,7 @@
 package request
 
 import (
-	"qiyuesuo/sdk/http"
+	"github.com/bugKai001/qiyuesuo/http"
 )
 
 type CompanyAuthLicenseH5PageRequest struct {

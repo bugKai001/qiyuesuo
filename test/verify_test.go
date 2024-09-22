@@ -2,9 +2,9 @@ package test
 
 import (
 	"fmt"
+	"github.com/bugKai001/qiyuesuo/http"
+	"github.com/bugKai001/qiyuesuo/request"
 	"os"
-	"qiyuesuo/sdk/http"
-	"qiyuesuo/sdk/request"
 	"testing"
 )
 

@@ -2,7 +2,7 @@ package test
 
 import (
 	"fmt"
-	"qiyuesuo/sdk/commons"
+	"github.com/bugKai001/qiyuesuo/commons"
 	"testing"
 )
 

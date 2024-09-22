@@ -3,9 +3,9 @@ package test
 import (
 	"encoding/json"
 	"fmt"
-	"qiyuesuo/sdk/http"
-	"qiyuesuo/sdk/model"
-	"qiyuesuo/sdk/request"
+	"github.com/bugKai001/qiyuesuo/http"
+	"github.com/bugKai001/qiyuesuo/model"
+	"github.com/bugKai001/qiyuesuo/request"
 	"testing"
 )
 
