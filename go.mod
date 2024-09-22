@@ -1,4 +1,4 @@
-module qiyuesuo/sdk
+module qiyuesuo-go/sdk
 
 go 1.20
 
