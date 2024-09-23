@@ -4,14 +4,9 @@ import (
 	"encoding/json"
 	"github.com/bugKai001/qiyuesuo/commons"
 	"io"
-	"strings"
 )
 
-const (
-	SDK_VERSION = "GO-3.0.5"
-)
-
-type SdkClient struct {
+type SdkV2Client struct {
 	ServerUrl    string
 	AccessToken  string
 	AccessSecret string
@@ -19,8 +14,8 @@ type SdkClient struct {
 	Language     string
 }
 
-func NewSdkClient(serverUrl string, accessToken string, accessSecret string) *SdkClient {
-	sdkClient := SdkClient{
+func NewSdkV2Client(serverUrl string, accessToken string, accessSecret string) *SdkV2Client {
+	sdkClient := SdkV2Client{
 		ServerUrl:    serverUrl,
 		AccessToken:  accessToken,
 		AccessSecret: accessSecret,
@@ -29,7 +24,7 @@ func NewSdkClient(serverUrl string, accessToken string, accessSecret string) *Sd
 	return &sdkClient
 }
 
-func (sdk *SdkClient) Service(request SdkRequest) (res map[string]interface{}, err error) {
+func (sdk *SdkV2Client) Service(request SdkRequest) (res map[string]interface{}, err error) {
 	bs, err := sdk.sdkRequest(request)
 	res = make(map[string]interface{})
 	if err != nil {
@@ -39,12 +34,8 @@ func (sdk *SdkClient) Service(request SdkRequest) (res map[string]interface{}, e
 	return
 }
 
-func (sdk *SdkClient) Download(request SdkRequest, w io.Writer) (err error) {
-	getUrl := request.GetUrl()
-	if strings.HasPrefix(getUrl, "/v2/") {
-		getUrl = strings.Replace(getUrl, "/v2", "", 1)
-	}
-	url := sdk.ServerUrl + getUrl
+func (sdk *SdkV2Client) Download(request SdkRequest, w io.Writer) (err error) {
+	url := sdk.ServerUrl + request.GetUrl()
 	parameter := request.GetHttpParameter()
 	header := sdk.buildHttpHeader(parameter)
 	if parameter.IsJson() {
@@ -55,12 +46,8 @@ func (sdk *SdkClient) Download(request SdkRequest, w io.Writer) (err error) {
 	return
 }
 
-func (sdk *SdkClient) sdkRequest(request SdkRequest) (bs []byte, err error) {
-	getUrl := request.GetUrl()
-	if strings.HasPrefix(getUrl, "/v2/") {
-		getUrl = strings.Replace(getUrl, "/v2", "", 1)
-	}
-	url := sdk.ServerUrl + getUrl
+func (sdk *SdkV2Client) sdkRequest(request SdkRequest) (bs []byte, err error) {
+	url := sdk.ServerUrl + request.GetUrl()
 	parameter := request.GetHttpParameter()
 	header := sdk.buildHttpHeader(parameter)
 	if parameter.IsJson() {
@@ -69,7 +56,7 @@ func (sdk *SdkClient) sdkRequest(request SdkRequest) (bs []byte, err error) {
 	return DoService(url, parameter, header)
 }
 
-func (sdk *SdkClient) buildHttpHeader(httpParameter *HttpParameter) *HttpHeader {
+func (sdk *SdkV2Client) buildHttpHeader(httpParameter *HttpParameter) *HttpHeader {
 	timestamp := commons.GetTimeStamp()
 	nonce := commons.GetUUID()
 	var signature = commons.GetMD5(sdk.AccessToken + sdk.AccessSecret + timestamp + nonce)
