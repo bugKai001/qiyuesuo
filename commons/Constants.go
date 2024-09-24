@@ -1,14 +1,14 @@
 package commons
 
 const (
-	ACCESS_TOKEN    = "x-qys-open-accesstoken"
-	TIMESTAMP       = "x-qys-open-timestamp"
-	SIGNATURE       = "x-qys-open-signature"
-	NONCE           = "x-qys-open-nonce"
-	SDK_VERSION     = "version"
+	ACCESS_TOKEN    = "x-qys-accesstoken"
+	TIMESTAMP       = "x-qys-timestamp"
+	SIGNATURE       = "x-qys-signature"
+	NONCE           = "x-qys-nonce"
+	SDK_VERSION     = "x-qys-signature-version"
 	CONNECTOR       = "&"
 	EQUALSIGN       = "="
-	AGENT_TOKEN     = "x-qys-open-agentaccesstoken"
-	AGENT_SIGNATURE = "x-qys-open-agentsignature"
-	LANGUAGE        = "x-qys-open-language"
+	AGENT_TOKEN     = "x-qys-agentaccesstoken"
+	AGENT_SIGNATURE = "x-qys-agentsignature"
+	LANGUAGE        = "x-qys-language"
 )
