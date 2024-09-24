@@ -29,6 +29,16 @@ func NewSdkClient(serverUrl string, accessToken string, accessSecret string) *Sd
 	return &sdkClient
 }
 
+func NewSdkClient2(serverUrl string, accessToken string, accessSecret string, sdkVersion sring) *SdkClient {
+	sdkClient := SdkClient{
+		ServerUrl:    serverUrl,
+		AccessToken:  accessToken,
+		AccessSecret: accessSecret,
+		SdkVersion:   sdkVersion,
+	}
+	return &sdkClient
+}
+
 func (sdk *SdkClient) Service(request SdkRequest) (res map[string]interface{}, err error) {
 	bs, err := sdk.sdkRequest(request)
 	res = make(map[string]interface{})
