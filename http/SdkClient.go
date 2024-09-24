@@ -29,7 +29,7 @@ func NewSdkClient(serverUrl string, accessToken string, accessSecret string) *Sd
 	return &sdkClient
 }
 
-func NewSdkClient2(serverUrl string, accessToken string, accessSecret string, sdkVersion sring) *SdkClient {
+func NewSdkClient2(serverUrl string, accessToken string, accessSecret string, sdkVersion string) *SdkClient {
 	sdkClient := SdkClient{
 		ServerUrl:    serverUrl,
 		AccessToken:  accessToken,
